@@ -133,7 +133,7 @@ module.exports = function(grunt) {
       //get all the include HTML FILES
       //如果设置了包含html文件本身，就需要遍历所有的html文件列表，但是路径是相对于manifest文件的路径的
       if (OPT.includeHTML) {
-        Util.log('find out the followwing html files:');
+        Util.log('find out the following html files:');
         tempList.forEach(function(html) {
           var _path = Util.getRelativePath(manifestfile, html);
           allFiles[_path] = true;
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
       //如果包含js文件，遍历所有的script标签中的外联文件地址，同样需要相对于mainifeste文件的路径
       if (OPT.includeJS) {
         //becase the js file's path is relatived to the corresponding html file.
-        Util.log('find out the followwing javascript files:');
+        Util.log('find out the following javascript files:');
         htmlSourceList.forEach(function(fileObj) {
           var _list = fileObj.content.match(/<script\s+(?:[^>]+\s+)?src=["']?\s*([^>]+)\s*["']?[\s>\/]/ig) || [];
           _list.forEach(function(js) {
@@ -162,7 +162,7 @@ module.exports = function(grunt) {
       //如果包含html中的图片，就需要遍历所有的img和style中的内联样式的背景图片
       //由于js代码中也可能有图片的连接等，但是js由于是需要计算执行的，很可能是个动态的地址，所以js当中的内容需要先过滤掉
       if (OPT.includeHtmlImage) {
-        Util.log('find out the followwing images from html content:');
+        Util.log('find out the following images from html content:');
         htmlSourceList.forEach(function(fileObj) {
           //need clear the fake images from js content
           var _list = fileObj.content.replace(/<script[^>]*>(?:[\s\S]*?)<\/script\s*>/ig,'').match(/<img\s+(?:[^>]+\s+)?src=["']?\s*([^>]+)\s*["']?[\s>\/]/ig) || [];
@@ -244,7 +244,7 @@ module.exports = function(grunt) {
         if (!OPT.includeCSS) {
           cssList = [];
         } else {
-          Util.log('find out the followwing css files:');
+          Util.log('find out the following css files:');
           Util.log(cssList.join('\n'));
         }
       }
@@ -261,7 +261,7 @@ module.exports = function(grunt) {
             return;
           }
           //i should log this result just here;
-          Util.log('find out the followwing images from style content:');
+          Util.log('find out the following images from style content:');
           Util.log(imageList.join('\n'));
           //clear the repeat file
           _list.forEach(function(item) {
